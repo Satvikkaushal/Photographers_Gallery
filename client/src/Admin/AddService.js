@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function AdminDashboard() {
+const AddService = () => {
     return (
         <div>
-            <h3>Admin</h3>
+
         </div>
     )
 }
+
+export default AddService;

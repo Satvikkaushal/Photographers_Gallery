@@ -1,10 +1,13 @@
 import React from 'react'
 import Home from '../core/Home'
 
-export default function UserDashboard() {
+
+const ManageServices = () => {
     return (
         <Home>
-            <h3>User Dashboard</h3>
+            ManageServices working
         </Home>
     )
 }
+
+export default ManageServices;
