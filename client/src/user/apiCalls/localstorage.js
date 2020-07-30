@@ -18,3 +18,10 @@ export const IsAuthenticated = () => {
     }
 }
 
+export const addToSaved = (next) => {
+    if (typeof window !== "undefined") {
+        localStorage.setItem("saved", []);
+        next();
+    }
+}
+

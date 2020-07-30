@@ -1,10 +1,11 @@
 import React from 'react'
+import Home from '../core/Home';
 
 const UpdateService = () => {
     return (
-        <div>
+        <Home>
             Update service working
-        </div>
+        </Home>
     )
 }
 

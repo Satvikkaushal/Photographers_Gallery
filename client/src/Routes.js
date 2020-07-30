@@ -11,6 +11,9 @@ import PrivateRoutes from './privateRoutes/PrivateRoutes'
 import AdminRoutes from './privateRoutes/AdminRoutes'
 import ManageCategories from './Admin/ManageCategories'
 import ManageServices from './Admin/ManageServices'
+import Customers from './Admin/Customers'
+import Sellers from './Admin/Sellers'
+import UpdateService from './Admin/UpdateService'
 
 
 
@@ -21,10 +24,16 @@ export default function Routes() {
                 <Route path="/" exact component={LandingPage} />
                 <Route path="/signIn" exact component={signIn} />
                 <Route path="/signUp" exact component={signUp} />
+                <Route path="/user/:userId" exact component={Profile} />
+
                 <PrivateRoutes path="/dashboard" exact component={Dashboard} />
                 <AdminRoutes path="/admin/dashboard" exact component={AdminDashboard} />
                 <AdminRoutes path="/admin/categories" exact component={ManageCategories} />
                 <AdminRoutes path="/admin/services" exact component={ManageServices} />
+                <AdminRoutes path="/admin/customers" exact component={Customers} />
+                <AdminRoutes path="/admin/sellers" exact component={Sellers} />
+                <AdminRoutes path="/admin/updateservice" exact component={UpdateService} />
+
             </Switch>
         </BrowserRouter>
     )

@@ -22,15 +22,19 @@ export default function NavbarItems() {
     const { user } = IsAuthenticated();
     return (
         <div >
-            <Navbar bg="light" expand="lg" style={nav}>
+            <Navbar bg="light" expand="lg" style={nav} fixed="top">
                 <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        {/* <Nav.Link href="/sign">Become Photgrapher</Nav.Link>
-                        <Nav.Link href="/saved">Saved</Nav.Link>
-                        <Nav.Link href="/orders">Orders</Nav.Link>
-                        {(1 == 1) && (<Nav.Link href="/Profile">Profile</Nav.Link>)} */}
+                    <Form inline>
+                        <FormControl type="text" placeholder="Search" style={{ border: '1px solid green' }} />
+                        <Button variant="success" style={{ marginLeft: '-9px' }}>Search</Button>
+                    </Form>
+                    <Nav className="mr-auto" >
+                        {/* <Nav.Link href="/sign">Become Photgrapher</Nav.Link> */}
+                        {IsAuthenticated() && (<Nav.Link href="/saved">Saved</Nav.Link>)}
+                        {IsAuthenticated() && (<Nav.Link href="/orders">Orders</Nav.Link>)}
+                        {IsAuthenticated() && (<Nav.Link href="/Profile">Profile</Nav.Link>)}
                         {(IsAuthenticated() && user.role == 0) && (<Nav.Link href="/dashboard">Dashboard</Nav.Link>)}
                         {(IsAuthenticated() && user.role == 1) && (<Nav.Link href="/admin/dashboard">Dashboard</Nav.Link>)}
                         {(!IsAuthenticated()) && (<Nav.Link href="/SignIn">SignIn/SignUp</Nav.Link>)}
@@ -46,12 +50,7 @@ export default function NavbarItems() {
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                         </NavDropdown> */}
                     </Nav>
-                    {/* <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search <IoIosAirplane /></Button>
-                        <ion-icon name="enter-outline" size="large"></ion-icon>
-                        <ion-icon name="exit-outline" size="large"></ion-icon>
-                    </Form> */}
+
                 </Navbar.Collapse>
             </Navbar>
         </div >

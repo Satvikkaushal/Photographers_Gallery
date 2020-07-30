@@ -11,6 +11,7 @@ import Form from 'react-bootstrap/Form'
 
 import AdminMenus from './AdminMenus'
 import { IsAuthenticated } from '../user/apiCalls/localstorage'
+import { Card } from 'react-bootstrap'
 
 const ManageCategories = () => {
 
@@ -53,7 +54,7 @@ const ManageCategories = () => {
 
     return (
         <Home>
-            <div>
+            <Card>
                 <Row>
                     <Col sm={4}><AdminMenus /></Col>
                     <Modal show={show} onHide={handleClose}>
@@ -69,9 +70,8 @@ const ManageCategories = () => {
                             <Button variant="primary" onClick={() => {
                                 addCategory({ name })
                                 if (reload) { setreload(false) }
-                                if (!reload) { setreload(true) }
+                                reload ? setreload(false) : setreload(true)
                                 setNames("")
-
                                 handleClose()
                             }}>
                                 Add Category
@@ -88,15 +88,15 @@ const ManageCategories = () => {
                                         <Col sm={6}><h3>{category.name}</h3></Col>
                                         <Col sm={1}><Button variant="danger" onClick={() => {
                                             DeleteCategory(category._id, token);
-                                            if (reload) { setreload(false) }
-                                            if (!reload) { setreload(true) }
+                                            reload ? setreload(false) : setreload(true)
+                                            // if (reload) { setreload(false) }
+                                            // if (!reload) { setreload(true) }
                                         }}>Delete</Button><br /><br /></Col>
                                     </Row></div>
                             )
                         })}</Col>
 
-                </Row>
-            </div>
+                </Row></Card>
         </Home >
     )
 }

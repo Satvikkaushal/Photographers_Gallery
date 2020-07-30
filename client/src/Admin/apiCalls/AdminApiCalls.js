@@ -54,7 +54,7 @@ export const DeleteCategory = (categoryId, token) => {
         })
 }
 
-export const addCategory = name => {
+export const addCategory = (name) => {
     return fetch(`${API}/create/category/${user._id}`, {
         method: "Post",
         headers: {
@@ -66,4 +66,55 @@ export const addCategory = name => {
 
     }).then(response => { return response.json() })
         .catch(err => console.log(err))
+}
+
+
+
+export const getAllUsers = () => {
+    return fetch(`${API}/users`, {
+        method: "Get",
+        headers: {
+            Accept: "application/json",
+            "Content-type": "application/json"
+        }
+    }).then(response => {
+        return response.json()
+    })
+        .catch(err => { console.log(err) })
+}
+
+export const getAllServices = () => {
+    return fetch(`${API}/services`, {
+        method: "Get",
+        headers: {
+            Accept: "application/json",
+            "Content-type": "application/json"
+        }
+    }).then(response => {
+        return response.json()
+    })
+        .catch(err => { console.log(err) })
+}
+
+
+export const getUserById = (id) => {
+    return fetch(`${API}/user/${id}`, {
+        method: "Get"
+    }).then(response => {
+        return response.json();
+    })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+export const getServiceByUserId = (userId) => {
+    return fetch(`${API}/user/${userId}/services`, {
+        method: "Get"
+    }).then(response => {
+        return response.json();
+    })
+        .catch(err => {
+            console.log(err);
+        })
 }

@@ -10,7 +10,7 @@ const Home = ({ tittle = "My Tittle",
     return (
         <div>
             <NavbarItems />
-            <div className="container-fluid">
+            <div className="container-fluid" style={{ marginTop: '110px' }}>
                 <div className={className}>{children}</div>
             </div>
             <Footer />

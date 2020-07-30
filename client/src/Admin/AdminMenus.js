@@ -12,10 +12,10 @@ const AdminMenus = () => {
             <Card style={{ width: '15rem', textAlign: 'center' }}>
                 <Card.Header>Admin Panel</Card.Header>
                 <ListGroup variant="flush">
-                    <ListGroup.Item><Link to="/admin/services">Services</Link></ListGroup.Item>
+                    <ListGroup.Item><Link to="/admin/services" >Services</Link></ListGroup.Item>
                     <ListGroup.Item><Link to="/admin/categories">Categories</Link></ListGroup.Item>
-                    <ListGroup.Item><Link to="/admin/customers">Customers</Link></ListGroup.Item>
-                    <ListGroup.Item><Link to="/admin/sellers">Sellers</Link></ListGroup.Item>
+                    <ListGroup.Item><Link to="/admin/customers" className='disabled-link'>Customers</Link></ListGroup.Item>
+                    <ListGroup.Item><Link to="/admin/sellers" className='disabled-link'>Sellers</Link></ListGroup.Item>
                 </ListGroup>
             </Card>
         </div>
