@@ -4,8 +4,9 @@ import { AiFillSetting } from "react-icons/ai";
 import { FaUserTie } from "react-icons/fa";
 import { IsAuthenticated, addToSaved } from '../user/apiCalls/localstorage'
 import { Link } from 'react-router-dom';
-import { getUserById } from '../Admin/apiCalls/AdminApiCalls';
+// import { getUserById } from '../Admin/apiCalls/AdminApiCalls';
 import { BsBookmark, BsBookmarksFill } from "react-icons/bs";
+import { addtocart, removeFromcart } from './helper/ApiCalls';
 
 
 
@@ -23,11 +24,11 @@ const Cards = ({
     const [Liked, setLiked] = useState(false)
 
     const addToSaved = (id) => {
-        let saved = [];
-        if (!localStorage.getItem("saved")) {
-            localStorage.setItem("saved", []);
-        }
-        saved.push(id)
+        addtocart(id)
+    }
+
+    const removeFromSaved = (id) => {
+        removeFromcart(id)
     }
 
     const cardProfileImage = () => {
@@ -37,12 +38,13 @@ const Cards = ({
 
     const SaveOption = () => {
         return (
-            <div>                    {(!Liked) && (<BsBookmark onClick={() => {
+            <div>                {(!Liked) && (<BsBookmark onClick={() => {
                 setLiked(true)
                 addToSaved(Service._id);
             }} size='1.5rem' />)}
                 {(Liked) && (<BsBookmarksFill onClick={() => {
                     setLiked(false)
+                    removeFromSaved(Service._id)
                 }} size='1.5rem' />)}</div>
         )
     }

@@ -8,6 +8,7 @@ import Cards from '../core/Card'
 const Profile = ({ match }) => {
 
     const [values, setvalues] = useState({
+        cart: [],
         name: "",
         contact: "",
         email: "",
@@ -31,7 +32,7 @@ const Profile = ({ match }) => {
         getUserById(id)
             .then(data => {
                 // console.log(data)
-                setvalues({ ...values, name: data.name, email: data.email, contact: data.contact })
+                setvalues({ ...values, name: data.name, email: data.email, contact: data.contact, cart: data.cart })
             })
             .catch(err => { console.log(err) })
     }
@@ -46,7 +47,7 @@ const Profile = ({ match }) => {
         <Home>
             <div className="row" >
                 <div className="col-sm-4" >
-                    <div class="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-responsive" />
+                    <div class="profile-card-4 text-center" ><img style={{ height: '18rem' }} src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img img-fluid" />
                         <div class="profile-content">
                             <div class="profile-name"><h3><b>{name}</b></h3>
                             </div>

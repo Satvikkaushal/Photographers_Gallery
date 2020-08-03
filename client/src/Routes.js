@@ -14,6 +14,7 @@ import ManageServices from './Admin/ManageServices'
 import Customers from './Admin/Customers'
 import Sellers from './Admin/Sellers'
 import UpdateService from './Admin/UpdateService'
+import Saved from './core/Saved'
 
 
 
@@ -27,6 +28,7 @@ export default function Routes() {
                 <Route path="/user/:userId" exact component={Profile} />
 
                 <PrivateRoutes path="/dashboard" exact component={Dashboard} />
+                <PrivateRoutes path="/saved" exact component={Saved} />
                 <AdminRoutes path="/admin/dashboard" exact component={AdminDashboard} />
                 <AdminRoutes path="/admin/categories" exact component={ManageCategories} />
                 <AdminRoutes path="/admin/services" exact component={ManageServices} />
