@@ -35,7 +35,6 @@ export default function NavbarItems() {
                         {IsAuthenticated() && (<Nav.Link href="/saved">Saved</Nav.Link>)}
                         {IsAuthenticated() && (<Nav.Link href="/orders">Orders</Nav.Link>)}
                         {IsAuthenticated() && (<Nav.Link href="/Profile">Profile</Nav.Link>)}
-                        {(IsAuthenticated() && user.role == 0) && (<Nav.Link href="/dashboard">Dashboard</Nav.Link>)}
                         {(IsAuthenticated() && user.role == 1) && (<Nav.Link href="/admin/dashboard">Dashboard</Nav.Link>)}
                         {(!IsAuthenticated()) && (<Nav.Link href="/SignIn">SignIn/SignUp</Nav.Link>)}
                         {(IsAuthenticated()) && (<Nav.Link onClick={() => {

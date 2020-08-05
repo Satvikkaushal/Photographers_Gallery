@@ -171,4 +171,31 @@
     filter: brightness(110%);
 }
 
+.cartOption{
+  display: none;
+  }
 
+  .mainCard:hover{
+    box-shadow: 0 0 11px 
+rgba(33,33,33,.2);
+  }
+
+.mainCard:hover .cartOption{
+  
+display: block;
+ 
+}
+.mainCard:hover .cartDescription{
+  display: none;
+  }
+
+  .image {
+    filter: none;
+    -webkit-filter: grayscale(0);
+
+}
+
+.image:hover {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}

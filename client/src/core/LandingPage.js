@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import Home from './Home';
-import { getAllServices, getCategories } from '../Admin/apiCalls/AdminApiCalls';
+import { getAllServices, getCategories, getUserById } from '../Admin/apiCalls/AdminApiCalls';
 import { Row } from 'react-bootstrap';
 import Cards from './Card';
+import { IsAuthenticated } from '../user/apiCalls/localstorage';
 const LandingPage = () => {
 
     const [Categories, setCategories] = useState([])
     const [Services, setServices] = useState([]);
     const [reload, setreload] = useState("");
+    const [cart, setCart] = useState([]);
+
+    const { user } = IsAuthenticated();
 
 
     const LoadAllCategories = () => {
@@ -38,6 +42,13 @@ const LandingPage = () => {
     useEffect(() => {
         LoadAllCategories();
         LoadAllServices();
+        // getUserById(user._id).then(data => {
+        //     setCart(data.cart)
+        //     console.log(cart.length)
+        //     cart.map(() => {
+        //         console.log(data.cart._id)
+        //     })
+        // })
     }, [reload])
 
 
