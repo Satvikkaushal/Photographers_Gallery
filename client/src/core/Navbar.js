@@ -7,7 +7,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from 'react-bootstrap/Button'
 import { Link, withRouter } from "react-router-dom";
 import { IoIosAirplane } from "react-icons/io";
-import '../style.css'
+import '../Styles/Cards.css'
 import { signOut } from '../user/apiCalls/ApiCalls';
 import { IsAuthenticated } from '../user/apiCalls/localstorage';
 
@@ -19,22 +19,23 @@ const nav = {
 
 export default function NavbarItems() {
 
+
     const { user } = IsAuthenticated();
     return (
-        <div >
+        <div id="navigation">
             <Navbar bg="light" expand="lg" style={nav} fixed="top">
                 <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Form inline>
+                    {/* <Form inline>
                         <FormControl type="text" placeholder="Search" style={{ border: '1px solid green' }} />
                         <Button variant="success" style={{ marginLeft: '-9px' }}>Search</Button>
-                    </Form>
+                    </Form> */}
                     <Nav className="mr-auto" >
                         {/* <Nav.Link href="/sign">Become Photgrapher</Nav.Link> */}
                         {IsAuthenticated() && (<Nav.Link href="/saved">Saved</Nav.Link>)}
                         {IsAuthenticated() && (<Nav.Link href="/orders">Orders</Nav.Link>)}
-                        {IsAuthenticated() && (<Nav.Link href="/Profile">Profile</Nav.Link>)}
+                        {IsAuthenticated() && (<Nav.Link href={`/user/${user._id}`}>Profile</Nav.Link>)}
                         {(IsAuthenticated() && user.role == 1) && (<Nav.Link href="/admin/dashboard">Dashboard</Nav.Link>)}
                         {(!IsAuthenticated()) && (<Nav.Link href="/SignIn">SignIn/SignUp</Nav.Link>)}
                         {(IsAuthenticated()) && (<Nav.Link onClick={() => {

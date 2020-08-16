@@ -1,4 +1,6 @@
 import { API } from '../../backend'
+import { IsAuthenticated } from './localstorage'
+const { user, token } = IsAuthenticated();
 
 export const signUp = user => {
     return fetch(`${API}/signUp`, {
@@ -46,4 +48,19 @@ export const signOut = next => {
             .then(response => console.log(response))
             .catch(err => console.log(err))
     }
+}
+
+export const updateUser = UpdatedUser => {
+    console.log(JSON.stringify(UpdatedUser))
+    return fetch(`${API}/user/${user._id}`, {
+        method: "Put",
+        headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(UpdatedUser)
+    }).then(response => { return response.json() })
+        .catch(err => console.log(err))
+
 }

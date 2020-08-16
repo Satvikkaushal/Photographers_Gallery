@@ -4,6 +4,7 @@ import { getAllServices, getCategories, getUserById } from '../Admin/apiCalls/Ad
 import { Row } from 'react-bootstrap';
 import Cards from './Card';
 import { IsAuthenticated } from '../user/apiCalls/localstorage';
+import LandingPageWithoutLogin from './LandingPageWithoutLogin';
 const LandingPage = () => {
 
     const [Categories, setCategories] = useState([])
@@ -42,18 +43,12 @@ const LandingPage = () => {
     useEffect(() => {
         LoadAllCategories();
         LoadAllServices();
-        // getUserById(user._id).then(data => {
-        //     setCart(data.cart)
-        //     console.log(cart.length)
-        //     cart.map(() => {
-        //         console.log(data.cart._id)
-        //     })
-        // })
     }, [reload])
 
 
     return (
         <Home>
+            <LandingPageWithoutLogin />
             <Row style={{ justifyContent: 'center' }}>
                 {Services.map((service) => {
                     return (
