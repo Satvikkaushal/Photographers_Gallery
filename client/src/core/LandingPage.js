@@ -41,14 +41,16 @@ const LandingPage = () => {
             .catch()
     }
     useEffect(() => {
-        LoadAllCategories();
-        LoadAllServices();
+        if (true) {
+            LoadAllCategories();
+            LoadAllServices();
+        }
     }, [reload])
 
 
     return (
         <Home>
-            <LandingPageWithoutLogin />
+            {!(IsAuthenticated()) && (<LandingPageWithoutLogin />)}
             <Row style={{ justifyContent: 'center' }}>
                 {Services.map((service) => {
                     return (

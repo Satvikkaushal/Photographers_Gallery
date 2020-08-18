@@ -39,8 +39,13 @@ const Cards = ({
     const SaveOption = () => {
         return (
             <div>{(!Liked) && (<BsBookmark onClick={() => {
-                setLiked(true)
-                addToSaved(Service._id);
+                if (IsAuthenticated()) {
+                    setLiked(true)
+                    addToSaved(Service._id);
+                }
+                else {
+                    alert("login needed")
+                }
             }} size='1.5rem' />)}
                 {(Liked) && (<BsBookmarksFill onClick={() => {
                     setLiked(false)
@@ -61,7 +66,7 @@ const Cards = ({
                 <Card.Text >
                     <h5 className="cartDescription">{cardDescription}</h5>
                     <div className="cartOption"><Row >
-                        <Col sm={4}>{(IsAuthenticated()) && (SaveOption())}</Col>
+                        <Col sm={4}>{SaveOption()}</Col>
                         <Col sm={8}><h6>Under {'\u20B9'}{price}</h6></Col>
                     </Row></div>
                 </Card.Text>
